@@ -34,7 +34,9 @@ module.exports = {
         'testem.js',
         'blueprints/*/index.js',
         'config/**/*.js',
-        'tests/dummy/config/**/*.js'
+        'tests/dummy/config/**/*.js',
+        'tailwind.config.js',
+        'stylelint.config.js',
       ],
       excludedFiles: [
         'addon/**',

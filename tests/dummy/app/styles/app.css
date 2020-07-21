@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.focused {
+  outline-color: lime !important;
+  outline-width: medium !important;
+  outline-style: dashed !important;
+}
