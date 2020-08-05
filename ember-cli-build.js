@@ -22,6 +22,9 @@ module.exports = function(defaults) {
     },
     'ember-composable-helpers': {
       only: ['repeat'],
+    },
+    'ember-math-helpers': {
+      only: ['random'],
     }
   });
 
