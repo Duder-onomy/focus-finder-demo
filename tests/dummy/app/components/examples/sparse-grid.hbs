@@ -1,0 +1,9 @@
+<div style="height: 800px; width: 800px; position: relative;"></div>
+{{#each (repeat 16) as |item index|}}
+  <button
+    class="w-12 h-12 bg-blue-200 mx-auto absolute"
+    style="top: {{random 0 750}}px; left: {{random 0 750}}px;"
+  >
+    {{index}}
+  </button>
+{{/each}}
