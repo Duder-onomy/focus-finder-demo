@@ -18,7 +18,7 @@ export default class FocusFinderService extends Service {
     // captureFocusAttribute : 'capture-focus',
     // dynamicPositionAttribute : 'dynamic-position',
     // useRealFocus : true, // Will trigger `blur` and `focus` on the actual elements, if set to false, bypass this.
-    azimuthWeight: 5, // Higher value means that it will prefer elements in the direction it is going
+    azimuthWeight: 1, // Higher value means that it will prefer elements in the direction it is going
     distanceWeight : 1, // Higher value means that it will prefer elements that are closer
     debug: false, // Setting to true will replace the elements innerHTML with the computed distance (weighted azimuth + weighted distance),
   };
