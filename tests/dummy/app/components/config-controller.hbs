@@ -1,0 +1,63 @@
+{{#let (service 'focus-finder') (ember-object) as |focusFinder scope|}}
+  <div
+    class='absolute top-0 bg-white border border-gray-600 flex flex-col z-10 w-64 p-4 shadow-lg'
+    {{class-list
+      right-0=scope.showing
+      left-100=(not scope.showing)
+    }}
+  >
+    <button
+      class='absolute top-0 bg-blue border border-gray-600 px-2 bg-white'
+      style='right: 100%;'
+      type='button'
+      {{on 'click' (toggle 'showing' scope)}}
+    >
+      {{#if scope.showing}}
+        Close
+      {{else}}
+        Open
+      {{/if}}
+    </button>
+
+    <div class='mb-4'>
+      <label for='azimuth-weight' class='block text-sm font-medium leading-5 text-gray-700'>Azimuth Weight</label>
+      <div class='mt-1 relative rounded-md shadow-sm'>
+        <input
+          id='azimuth-weight'
+          class='form-input block w-full sm:text-sm sm:leading-5'
+          value={{focusFinder.config.azimuthWeight}}
+          type='number'
+          {{on 'input' (fn focusFinder.onConfigChanged 'azimuthWeight')}}
+        >
+      </div>
+    </div>
+
+    <div class='mb-4'>
+      <label for='distance-weight' class='block text-sm font-medium leading-5 text-gray-700'>Distance Weight</label>
+      <div class='mt-1 relative rounded-md shadow-sm'>
+        <input
+          id='distance-weight'
+          class='form-input block w-full sm:text-sm sm:leading-5'
+          value={{focusFinder.config.distanceWeight}}
+          type='number'
+          {{on 'input' (fn focusFinder.onConfigChanged 'distanceWeight')}}
+        >
+      </div>
+    </div>
+
+
+    <div class='mb-4'>
+      <label
+        {{on 'click' (prevent-default focusFinder.toggleDebug)}}
+        class='flex flex-row items-center text-sm font-medium leading-5 text-gray-700'
+      >
+        <span class='mr-4'>Debug Mode</span>
+        <Input
+          class='h-4 w-4'
+          @checked={{focusFinder.config.debug}}
+          @type="checkbox"
+        />
+      </label>
+    </div>
+  </div>
+{{/let}}
