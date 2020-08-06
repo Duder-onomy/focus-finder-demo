@@ -7,7 +7,7 @@
     }}
   >
     <button
-      class='absolute top-0 bg-blue border border-gray-600 px-2 bg-white right-100'
+      class='absolute top-0 bg-blue border border-gray-600 px-2 bg-white right-100 focus-ignore'
       type='button'
       {{on 'click' (toggle 'showing' scope)}}
     >
@@ -19,11 +19,11 @@
     </button>
 
     <div class='mb-4'>
-      <label for='azimuth-weight' class='block text-sm font-medium leading-5 text-gray-700'>Azimuth Weight</label>
+      <label for='azimuth-weight' class='block text-sm font-medium leading-5 text-gray-700 '>Azimuth Weight</label>
       <div class='mt-1 relative rounded-md shadow-sm'>
         <input
           id='azimuth-weight'
-          class='form-input block w-full sm:text-sm sm:leading-5'
+          class='form-input block w-full sm:text-sm sm:leading-5 focus-ignore'
           value={{focusFinder.config.azimuthWeight}}
           type='number'
           {{on 'input' (fn focusFinder.onConfigChanged 'azimuthWeight')}}
@@ -36,7 +36,7 @@
       <div class='mt-1 relative rounded-md shadow-sm'>
         <input
           id='distance-weight'
-          class='form-input block w-full sm:text-sm sm:leading-5'
+          class='form-input block w-full sm:text-sm sm:leading-5 focus-ignore'
           value={{focusFinder.config.distanceWeight}}
           type='number'
           {{on 'input' (fn focusFinder.onConfigChanged 'distanceWeight')}}
@@ -52,7 +52,7 @@
       >
         <span class='mr-4'>Debug Mode</span>
         <Input
-          class='h-4 w-4'
+          class='h-4 w-4 focus-ignore'
           @checked={{focusFinder.config.debug}}
           @type="checkbox"
         />

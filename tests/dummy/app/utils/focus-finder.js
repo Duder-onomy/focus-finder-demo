@@ -91,6 +91,8 @@ const defaultConfig = {
   azimuthWeight: 1,
   distanceWeight: 1,
   debug: false,
+  maxDistance: 1000,
+  ignoreClass: 'focus-ignore',
 };
 
 const internal = {
@@ -512,6 +514,7 @@ function _getPreferedOverrides(element) {
   }, {});
 }
 
+// TODO: This functions is in practice, only checking if elements are in the proper direction, lets collapse this in to a simple .filter with a generic isInDirection
 function _findCloseElements(isClose) {
   var currentElementsPosition;
 
@@ -554,6 +557,14 @@ function _activateClosest(closeElements, direction, getDistance, options) {
     .map(function (closeElement) {
 
       var result = getDistance(currentElementsPosition, closeElement.magicFocusFinderPosition);
+
+      if (result.distance > internal.config.maxDistance) {
+        return;
+      }
+
+      if  (closeElement.classList.contains(internal.config.ignoreClass)) {
+        return;
+      }
 
       if (!_elementIsVisible(closeElement)) {
         return;

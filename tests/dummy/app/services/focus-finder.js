@@ -21,6 +21,8 @@ export default class FocusFinderService extends Service {
     azimuthWeight: 1, // Higher value means that it will prefer elements in the direction it is going
     distanceWeight : 1, // Higher value means that it will prefer elements that are closer
     debug: false, // Setting to true will replace the elements innerHTML with the computed distance (weighted azimuth + weighted distance),
+    maxDistance: 500, // The maximum distance to travel. Decrease this to avoid giving focus to potentially distant elements.
+    ignoreClass: 'focus-ignore', // Give this class to elements focus-finder should ignore.
   };
 
   constructor(...args) {
