@@ -49,7 +49,7 @@ this.mff
   .addEventListener('focus-moved', (event) => {});
 ```
 
-Options Object
+## Options
 
 ```javascript
 {
@@ -69,6 +69,8 @@ Options Object
   debug : false, // Setting to true will replace the elements innerHTML with the computed distance (weighted azimuth + weighted distance),
   attributeWatchInterval : 100, // If your browser does not support mutation observers. This is how often it will check the known elements for attribute changes.
   useNativeMutationObserver : true // You can force the repo to use the non native mutation observer fallback.
+  maxDistance: 500, // The max distance focus will travel, useful to avoid unwanted large jumps
+  ignoreClass: 'focus-ignore', // A class you can give to elements, focus finder will ignore them
 }
 ```
 
