@@ -16,21 +16,23 @@ Brain dump / Explanation / Making plans for refactors after demos are complete.
 How focus finder works right now. 
 ![works right now](https://docs.google.com/drawings/d/e/2PACX-1vSCEsmjFg1eykOqTKV23_w6be9y1dTH_WY0XxjzJPzqn8T7w0NiHqZhdE4XKwK9MUV5pDiNj8Xy99Sq/pub?w=1182&h=1498)
 
-How it works right now: 
-We calculate a position for each element when it is inserted into the dom (via Mutation Observer) and append it to a list of known focusables.
-When a direction key is pressed, (lets say the person pressed the right arrow key)
-We check for any element level direction overrides, they have them, we use them to push focus and bail out.
-We toss out all elements whose center left is less than the currently focused elements center right.
-If the distance exceeds the maxDistance, we bail out
-If the element contains a special class, which bounce
-For elements beyond the maxDistance, we reduce weight drastically, but still keep it in the set, this is to enable any ‘last ditch effort’ to push focus
-We compute and sort the list by its weighted result. If there are per element weights defined, we use those. 
-Grab the first item, push focus it to. 
+How it works right now:=
+* We calculate a position for each element when it is inserted into the dom (via Mutation Observer) and append it to a list of known focusables.
+* When a direction key is pressed, (lets say the person pressed the right arrow key)
+* We check for any element level direction overrides, they have them, we use them to push focus and bail out.
+* We toss out all elements whose center left is less than the currently focused elements center right.
+* If the distance exceeds the maxDistance, we bail out
+* If the element contains a special class, which bounce
+* For elements beyond the maxDistance, we reduce weight drastically, but still keep it in the set, this is to enable any ‘last ditch effort’ to push focus
+* We compute and sort the list by its weighted result. If there are per element weights defined, we use those. 
+* Grab the first item, push focus it to. 
 
+```javascript
 function _getWeightedResult(azimuth, maxAzimuth = 1, azimuthWeight, distance, maxDistance = 1, distanceWeight) {
  return azimuthWeight * (Math.abs(azimuth) / maxAzimuth) +
    distanceWeight * (Math.abs(distance) / maxDistance);
 }
+```
 
 Todo (how we want it to work): 
 * Canonical focus should be maintained by the browser, abandon our own mgmt of currentFocus and ask the browser for it every time. Use real focus always.
