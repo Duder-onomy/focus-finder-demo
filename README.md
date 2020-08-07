@@ -6,7 +6,7 @@ This is just the demo website.
 
 Find the demo here: https://duder-onomy.github.io/focus-finder-demo/
 
-The intention here is to update the core lib and send a pr to 
+The intention here is to update the core lib and send a pr to https://github.com/SolidDigital/magic-focus-finder
 
 Focus Finder
 =========
