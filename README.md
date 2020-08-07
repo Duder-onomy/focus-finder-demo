@@ -21,8 +21,8 @@ How it works right now:=
 * If the distance exceeds the maxDistance, we bail out
 * If the element contains a special class, which bounce
 * For elements beyond the maxDistance, we reduce weight drastically, but still keep it in the set, this is to enable any ‘last ditch effort’ to push focus
-* We compute and sort the list by its weighted result. If there are per element weights defined, we use those. 
-* Grab the first item, push focus it to. 
+* We compute and sort the list by its weighted result. If there are per element weights defined, we use those.
+* Grab the first item, push focus it to.
 
 ```javascript
 function _getWeightedResult(azimuth, maxAzimuth = 1, azimuthWeight, distance, maxDistance = 1, distanceWeight) {
@@ -31,12 +31,12 @@ function _getWeightedResult(azimuth, maxAzimuth = 1, azimuthWeight, distance, ma
 }
 ```
 
-Todo (how we want it to work): 
+Todo (how we want it to work):
 * Canonical focus should be maintained by the browser, abandon our own mgmt of currentFocus and ask the browser for it every time. Use real focus always.
 * Lets change the way any maxDistance or maxAzimuth calcs work to hard filter on the max, if no elements are left after the hard filter, increase the maxDistance and try again. This will, I think, simplify the code to a more declarative `map, filter, reduce`
-* Lets change how elements are registered. Somehow, can we get away with only calling `getBoundingClientRect` on a certain subset of the DOM? 
-* Lets make sure we run in a raf so that the getBoundingClientRect calls are cheaper. 
-* Because all the positions are precalculated, everything breaks down when elements positions are dynamic. 
+* Lets change how elements are registered. Somehow, can we get away with only calling `getBoundingClientRect` on a certain subset of the DOM?
+* Lets make sure we run in a raf so that the getBoundingClientRect calls are cheaper.
+* Because all the positions are precalculated, everything breaks down when elements positions are dynamic.
 
 How to use it right now:
 ```javascript
@@ -123,7 +123,7 @@ You can specify on a per element basis if you want to override the default behav
 ```
 
 
-##Methods
+## Methods
 
 ### configure(options)
 configure the defaults, can be called at anytime to change the configuration
