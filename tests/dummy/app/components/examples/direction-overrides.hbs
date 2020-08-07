@@ -1,0 +1,6 @@
+<div class="flex flex-row items-center justify-between">
+  <button type="button" focus-overrides='null null .second null' class="first h-12 bg-blue-200 mx-auto mr-4 last:mr-0">Pushing Down from here will push focus right</button>
+  <button type="button" focus-overrides='null .first null null' class="second h-12 bg-blue-200 mx-auto mr-4 last:mr-0">Pushing Right from here will push focus left</button>
+  <button type="button" focus-overrides='.first null null null' class="third h-12 bg-blue-200 mx-auto mr-4 last:mr-0">Pushing Up from here will push focus to the left most button</button>
+  <button type="button" focus-overrides='null null null skip' class="fourth h-12 bg-blue-200 mx-auto mr-4 last:mr-0">Pushing Left from here will do nothing</button>
+</div>
