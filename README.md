@@ -41,6 +41,16 @@ Todo (how we want it to work):
 * Lets make sure we run in a raf so that the getBoundingClientRect calls are cheaper. 
 * Because all the positions are precalculated, everything breaks down when elements positions are dynamic. 
 
+How to use it right now:
+```javascript
+this.mff = MFF
+  .configure(this.config)
+  .start();
+
+this.mff
+  .getContainer()
+  .addEventListener('focus-moved', (event) => {});
+```
 
 Options Object
 
