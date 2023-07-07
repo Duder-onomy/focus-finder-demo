@@ -78,7 +78,7 @@
     "postcss-reporter": "^6.0.1",
     "qunit-dom": "^1.2.0",
     "style-loader": "^1.2.1",
-    "stylelint": "^13.6.1",
+    "stylelint": "^15.10.1",
     "stylelint-config-standard": "^20.0.0",
     "tailwindcss": "^1.5.1"
   },
